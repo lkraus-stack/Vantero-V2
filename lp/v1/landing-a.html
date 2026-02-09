@@ -413,6 +413,140 @@
                             </span>
                             <span class="model-option-arrow">›</span>
                           </button>
+
+                          <div class="model-option-divider is-subtle">
+                            <span></span>
+                            <span>Spezial-Modi</span>
+                            <span></span>
+                          </div>
+
+                          <div class="model-option-row">
+                            <button
+                              class="model-option"
+                              data-model-option
+                              data-model-mode="agent"
+                              data-label="Agent-Modus"
+                            >
+                              <span class="model-option-icon muted">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                  <path
+                                    d="M12 3.5c3.9 0 7 3.1 7 7 0 3.1-2.1 5.7-5 6.6V20a2 2 0 01-4 0v-2.9c-2.9-.9-5-3.5-5-6.6 0-3.9 3.1-7 7-7z"
+                                  />
+                                  <path d="M9.5 10.5h5" />
+                                  <path d="M10.5 13.5h3" />
+                                </svg>
+                              </span>
+                              <span class="model-option-text">
+                                <span class="model-option-title">
+                                  Agent-Modus <span class="beta-pill">Beta</span>
+                                </span>
+                                <span class="model-option-desc">Schritt für Schritt</span>
+                              </span>
+                              <span class="model-option-check">✓</span>
+                            </button>
+                            <button
+                              class="model-option-settings neutral"
+                              aria-label="Agent-Modus konfigurieren"
+                              type="button"
+                              disabled
+                            >
+                              <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 7h10" />
+                                <path d="M4 17h10" />
+                                <path d="M4 12h16" />
+                                <path d="M16 7v0" />
+                                <path d="M14 17v0" />
+                                <path d="M8 12v0" />
+                                <path d="M14 5v4" />
+                                <path d="M16 10v4" />
+                                <path d="M20 10v4" />
+                              </svg>
+                            </button>
+                          </div>
+
+                          <div class="model-option-row">
+                            <button
+                              class="model-option"
+                              data-model-option
+                              data-model-mode="arena"
+                              data-label="Arena-Modus"
+                            >
+                              <span class="model-option-icon muted">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                  <path d="M8 4l-3 3 7 7-2 2-7-7-3 3" />
+                                  <path d="M16 4l3 3-7 7 2 2 7-7 3 3" />
+                                </svg>
+                              </span>
+                              <span class="model-option-text">
+                                <span class="model-option-title">
+                                  Arena-Modus <span class="beta-pill">Beta</span>
+                                </span>
+                                <span class="model-option-desc">Modelle vergleichen</span>
+                              </span>
+                              <span class="model-option-check">✓</span>
+                            </button>
+                            <button
+                              class="model-option-settings neutral"
+                              aria-label="Arena-Modus konfigurieren"
+                              data-arena-config-open
+                              type="button"
+                            >
+                              <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 7h10" />
+                                <path d="M4 17h10" />
+                                <path d="M4 12h16" />
+                                <path d="M16 7v0" />
+                                <path d="M14 17v0" />
+                                <path d="M8 12v0" />
+                                <path d="M14 5v4" />
+                                <path d="M16 10v4" />
+                                <path d="M20 10v4" />
+                              </svg>
+                            </button>
+                          </div>
+
+                          <div class="model-option-row">
+                            <button
+                              class="model-option"
+                              data-model-option
+                              data-model-mode="council"
+                              data-label="Council-Modus"
+                            >
+                              <span class="model-option-icon muted">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                  <path d="M7.5 10.5a2.5 2.5 0 115 0 2.5 2.5 0 01-5 0z" />
+                                  <path d="M13 20a4.5 4.5 0 00-9 0" />
+                                  <path d="M14.5 10a2 2 0 114 0 2 2 0 01-4 0z" />
+                                  <path d="M20 20a3.5 3.5 0 00-6-2.4" />
+                                </svg>
+                              </span>
+                              <span class="model-option-text">
+                                <span class="model-option-title">
+                                  Council-Modus <span class="beta-pill">Beta</span>
+                                </span>
+                                <span class="model-option-desc">Mehrere Modelle + Chair</span>
+                              </span>
+                              <span class="model-option-check">✓</span>
+                            </button>
+                            <button
+                              class="model-option-settings neutral"
+                              aria-label="Council-Modus konfigurieren"
+                              type="button"
+                              disabled
+                            >
+                              <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 7h10" />
+                                <path d="M4 17h10" />
+                                <path d="M4 12h16" />
+                                <path d="M16 7v0" />
+                                <path d="M14 17v0" />
+                                <path d="M8 12v0" />
+                                <path d="M14 5v4" />
+                                <path d="M16 10v4" />
+                                <path d="M20 10v4" />
+                              </svg>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -471,32 +605,220 @@
       </section>
 
       <section id="plattform" class="section alt">
-        <div class="container split">
-          <div>
-            <p class="eyebrow">All-in-One Plattform</p>
-            <h2>Der Koenig des KI-Dschungels</h2>
-            <p>
-              Vantero ist dein zentraler Hub fuer alle Top-LLMs. Ein Interface,
-              ein Chat-Verlauf, volle Kontrolle ueber Sicherheit und Kosten.
-            </p>
-            <ul class="checklist">
-              <li>Alle Modelle in einer Umgebung</li>
-              <li>Kontext bleibt beim Modellwechsel erhalten</li>
-              <li>Prompt-Bibliothek und Personas fuer Teams</li>
-              <li>Transparente Nutzung und Zonen-Steuerung</li>
-            </ul>
+        <div class="container">
+          <div class="plattform-hero">
+            <div class="plattform-content">
+              <p class="eyebrow">All-in-One Plattform</p>
+              <h2>Der Koenig des KI-Dschungels</h2>
+              <p>
+                Vantero ist dein zentraler Hub fuer alle Top-LLMs. Ein Interface,
+                ein Chat-Verlauf, volle Kontrolle ueber Sicherheit und Kosten.
+              </p>
+              <ul class="checklist">
+                <li>Alle Modelle in einer Umgebung</li>
+                <li>Kontext bleibt beim Modellwechsel erhalten</li>
+                <li>Prompt-Bibliothek und Personas fuer Teams</li>
+                <li>Transparente Nutzung und Zonen-Steuerung</li>
+              </ul>
+              <div class="plattform-tagline">
+                <h3>Alle Top-KIs. Ein Chat.</h3>
+                <p>Die All-in-One Plattform fuer produktive Teams.</p>
+              </div>
+            </div>
           </div>
-          <div class="media-card">
-            <img
-              src="./assets/jungle-panther.png"
-              alt="Vantero Plattform"
-              loading="lazy"
-              width="1024"
-              height="1024"
-            />
-            <div class="media-overlay">
-              <h3>Alle Top-KIs. Ein Chat.</h3>
-              <p>Die All-in-One Plattform fuer produktive Teams.</p>
+        </div>
+      </section>
+
+      <section id="preise" class="section pricing-section">
+        <div class="container">
+          <div class="section-header pricing-header">
+            <p class="eyebrow">Transparente Preise</p>
+            <h2>Einfache Preise fuer jedes Team</h2>
+            <p>
+              Alle Top-Modelle, volle Feature-Power und faire monatliche Plaene ohne
+              versteckte Kosten.
+            </p>
+          </div>
+          <div class="pricing-billing" role="group" aria-label="Abrechnung umschalten">
+            <span class="billing-label">Abrechnung</span>
+            <div class="billing-switch" data-pricing-switch>
+              <button
+                class="billing-option is-active"
+                type="button"
+                data-billing-option="monthly"
+                aria-pressed="true"
+              >
+                Monatlich
+              </button>
+              <button
+                class="billing-option"
+                type="button"
+                data-billing-option="yearly"
+                aria-pressed="false"
+              >
+                Jaehrlich
+              </button>
+              <span class="billing-save">Spare 20%</span>
+            </div>
+          </div>
+          <div class="grid pricing">
+            <article class="price-card">
+              <div class="price-card-head">
+                <h3>Free</h3>
+                <p class="price-note">Perfekt zum Einstieg</p>
+              </div>
+              <p class="price">
+                <span class="price-value" data-price-monthly="0 EUR" data-price-yearly="0 EUR"
+                  >0 EUR</span
+                >
+                <span class="price-meta" data-meta-monthly="/Monat" data-meta-yearly="/Monat"
+                  >/Monat</span
+                >
+              </p>
+              <ul>
+                <li>20.000 Tokens/Tag</li>
+                <li>Alle Modelle</li>
+                <li>Community Support</li>
+              </ul>
+              <button class="secondary-btn">Kostenlos starten</button>
+            </article>
+            <article class="price-card highlight">
+              <p class="price-badge">Beliebteste Wahl</p>
+              <div class="price-card-head">
+                <h3>Basic</h3>
+                <p class="price-note">Fuer Solo-Performer</p>
+              </div>
+              <p class="price">
+                <span
+                  class="price-value"
+                  data-price-monthly="8,99 EUR"
+                  data-price-yearly="7,19 EUR"
+                  >8,99 EUR</span
+                >
+                <span
+                  class="price-meta"
+                  data-meta-monthly="/Monat"
+                  data-meta-yearly="/Monat bei Jahresabo"
+                  >/Monat</span
+                >
+              </p>
+              <ul>
+                <li>2M Tokens/Monat</li>
+                <li>E-Mail Support</li>
+                <li>Alle Modelle</li>
+              </ul>
+              <button class="primary-btn">Jetzt starten</button>
+            </article>
+            <article class="price-card">
+              <div class="price-card-head">
+                <h3>Pro</h3>
+                <p class="price-note">Fuer Power-User</p>
+              </div>
+              <p class="price">
+                <span
+                  class="price-value"
+                  data-price-monthly="17,99 EUR"
+                  data-price-yearly="14,39 EUR"
+                  >17,99 EUR</span
+                >
+                <span
+                  class="price-meta"
+                  data-meta-monthly="/Monat"
+                  data-meta-yearly="/Monat bei Jahresabo"
+                  >/Monat</span
+                >
+              </p>
+              <ul>
+                <li>5M Tokens/Monat</li>
+                <li>Priority Support</li>
+                <li>API-Zugang</li>
+              </ul>
+              <button class="secondary-btn">Jetzt starten</button>
+            </article>
+            <article class="price-card">
+              <div class="price-card-head">
+                <h3>Team</h3>
+                <p class="price-note">Fuer wachsende Teams</p>
+              </div>
+              <p class="price">
+                <span
+                  class="price-value"
+                  data-price-monthly="44,99 EUR"
+                  data-price-yearly="35,99 EUR"
+                  >44,99 EUR</span
+                >
+                <span
+                  class="price-meta"
+                  data-meta-monthly="/Monat"
+                  data-meta-yearly="/Monat bei Jahresabo"
+                  >/Monat</span
+                >
+              </p>
+              <ul>
+                <li>Bis zu 6 Nutzer</li>
+                <li>Team-Workspaces</li>
+                <li>12M Tokens/Monat</li>
+              </ul>
+              <button class="secondary-btn">Team starten</button>
+            </article>
+          </div>
+          <p class="pricing-trust">
+            Monatlich kuendbar · Alle Modelle inklusive · Keine Kreditkarte im Free Plan
+          </p>
+        </div>
+      </section>
+
+      <section id="apps" class="section apps-section">
+        <div class="container">
+          <div class="apps-panel">
+            <div class="section-header apps-header">
+              <p class="eyebrow">Ueberall dabei</p>
+              <h2>Native Apps fuer iOS und Android</h2>
+              <p>
+                Echte native Apps mit Voice Input und Push-Notifications. Die
+                iPhone &amp; iPad App sowie Voice Input sind bereits verfuegbar,
+                die native Android App folgt bald.
+              </p>
+            </div>
+            <div class="apps-grid">
+              <article class="app-feature-card is-available">
+                <span class="app-feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="7" y="2.5" width="10" height="19" rx="2.5" />
+                    <path d="M10.5 5h3" />
+                    <circle cx="12" cy="18" r="0.9" />
+                  </svg>
+                </span>
+                <h3>iPhone &amp; iPad</h3>
+                <p>Native iOS App im App Store.</p>
+                <span class="availability-pill is-live">Jetzt verfuegbar</span>
+              </article>
+
+              <article class="app-feature-card">
+                <span class="app-feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="7" y="2.5" width="10" height="19" rx="2.5" />
+                    <path d="M10.5 5h3" />
+                    <circle cx="12" cy="18" r="0.9" />
+                  </svg>
+                </span>
+                <h3>Android</h3>
+                <p>Native Android App.</p>
+                <span class="availability-pill">Bald verfuegbar</span>
+              </article>
+
+              <article class="app-feature-card is-voice is-available">
+                <span class="app-feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 14a3 3 0 003-3V6a3 3 0 10-6 0v5a3 3 0 003 3z" />
+                    <path d="M19 11a7 7 0 01-14 0" />
+                    <path d="M12 18v3" />
+                  </svg>
+                </span>
+                <h3>Voice Input</h3>
+                <p>Diktiere deine Prompts unterwegs.</p>
+                <span class="availability-pill is-live">Jetzt verfuegbar</span>
+              </article>
             </div>
           </div>
         </div>
@@ -504,52 +826,144 @@
 
       <section id="models" class="section">
         <div class="container">
-          <div class="split">
-            <div>
+          <div class="models-center">
+            <div class="section-header models-header">
               <h2>Entfessle die KI-Power</h2>
               <p class="lead">
                 Die besten Modelle, maximale Leistung. Vantero kombiniert GPT,
                 Claude, Gemini und mehr in einem Workflow.
               </p>
+              <p class="models-hint">
+                Waehle ein Modell aus - die Karte aktualisiert sich sofort.
+              </p>
             </div>
-            <div class="media-card">
-              <img
-                src="./assets/models-power.png"
-                alt="Modelle und Performance"
-                loading="lazy"
-                width="1024"
-                height="1024"
-              />
-              <div class="media-overlay">
-                <h3>Maximale Leistung</h3>
-                <p>Optimiert fuer anspruchsvolle Workloads.</p>
+
+            <div class="card models-preview-card" aria-live="polite">
+              <p class="models-preview-kicker" data-model-preview-kicker>Vantero</p>
+              <h3 class="models-preview-title" data-model-preview-title>Auto-Auswahl</h3>
+              <p class="models-preview-desc" data-model-preview-desc>
+                Vantero waehlt automatisch das passende Modell.
+              </p>
+              <div class="models-preview-pills" data-model-preview-pills>
+                <span class="models-pill">Automatisch</span>
+                <span class="models-pill">Kostenoptimiert</span>
+                <span class="models-pill">Sicher</span>
               </div>
             </div>
-          </div>
-          <div class="grid models">
-            <div class="card">
-              <h3>GPT-5</h3>
-              <p>Ideal fuer Brainstorming und Ideenfindung.</p>
-            </div>
-            <div class="card">
-              <h3>Claude</h3>
-              <p>Perfekt fuer komplexe Texte und Analysen.</p>
-            </div>
-            <div class="card">
-              <h3>Gemini</h3>
-              <p>Glaenzt beim Debuggen und strukturierten Code.</p>
-            </div>
-            <div class="card">
-              <h3>Mistral</h3>
-              <p>Schnell und kosteneffizient fuer grosse Volumen.</p>
-            </div>
-            <div class="card">
-              <h3>Llama & Qwen</h3>
-              <p>Open-Modelle fuer besondere Anforderungen.</p>
-            </div>
-            <div class="card highlight">
-              <h3>Auto-Auswahl</h3>
-              <p>Vantero waehlt automatisch das passende Modell.</p>
+
+            <div class="grid models models-grid" role="group" aria-label="Modelle" data-models-grid>
+              <button
+                class="card model-card"
+                type="button"
+                data-model-card
+                data-model-id="gpt-5"
+                data-model-kicker="OpenAI"
+                data-model-pills="Brainstorming,Ideen,Reasoning"
+                aria-pressed="false"
+              >
+                <span class="model-card-top">
+                  <span class="model-card-icon" aria-hidden="true">
+                    <img src="./assets/logo-gpt5.png" alt="" />
+                  </span>
+                  <span class="model-card-title">GPT-5</span>
+                </span>
+                <p class="model-card-desc">Ideal fuer Brainstorming und Ideenfindung.</p>
+              </button>
+
+              <button
+                class="card model-card"
+                type="button"
+                data-model-card
+                data-model-id="claude"
+                data-model-kicker="Anthropic"
+                data-model-pills="Texte,Analysen,Reasoning"
+                aria-pressed="false"
+              >
+                <span class="model-card-top">
+                  <span class="model-card-icon" aria-hidden="true">
+                    <img src="./assets/logo-claude.png" alt="" />
+                  </span>
+                  <span class="model-card-title">Claude</span>
+                </span>
+                <p class="model-card-desc">Perfekt fuer komplexe Texte und Analysen.</p>
+              </button>
+
+              <button
+                class="card model-card"
+                type="button"
+                data-model-card
+                data-model-id="gemini"
+                data-model-kicker="Google"
+                data-model-pills="Debugging,Code,Web"
+                aria-pressed="false"
+              >
+                <span class="model-card-top">
+                  <span class="model-card-icon" aria-hidden="true">
+                    <img src="./assets/logo-gemini.png" alt="" />
+                  </span>
+                  <span class="model-card-title">Gemini</span>
+                </span>
+                <p class="model-card-desc">Glaenzt beim Debuggen und strukturierten Code.</p>
+              </button>
+
+              <button
+                class="card model-card"
+                type="button"
+                data-model-card
+                data-model-id="mistral"
+                data-model-kicker="Mistral"
+                data-model-pills="Schnell,Effizient,Volumen"
+                aria-pressed="false"
+              >
+                <span class="model-card-top">
+                  <span class="model-card-icon" aria-hidden="true">
+                    <img src="./assets/logo-mistral.png" alt="" />
+                  </span>
+                  <span class="model-card-title">Mistral</span>
+                </span>
+                <p class="model-card-desc">Schnell und kosteneffizient fuer grosse Volumen.</p>
+              </button>
+
+              <button
+                class="card model-card"
+                type="button"
+                data-model-card
+                data-model-id="open-source"
+                data-model-kicker="Open Source"
+                data-model-pills="Flexibel,On-Prem,Spezialfaelle"
+                aria-pressed="false"
+              >
+                <span class="model-card-top">
+                  <span class="model-card-icon is-stack" aria-hidden="true">
+                    <span class="model-card-icon-mini">
+                      <img src="./assets/logo-llama.png" alt="" />
+                    </span>
+                    <span class="model-card-icon-mini">
+                      <img src="./assets/logo-qwen.png" alt="" />
+                    </span>
+                  </span>
+                  <span class="model-card-title">Llama &amp; Qwen</span>
+                </span>
+                <p class="model-card-desc">Open-Modelle fuer besondere Anforderungen.</p>
+              </button>
+
+              <button
+                class="card model-card highlight is-active"
+                type="button"
+                data-model-card
+                data-model-id="auto"
+                data-model-kicker="Vantero"
+                data-model-pills="Automatisch,Kostenoptimiert,Sicher"
+                aria-pressed="true"
+              >
+                <span class="model-card-top">
+                  <span class="model-card-icon" aria-hidden="true">
+                    <img src="./assets/vantero-logo-illustrated.png" alt="" />
+                  </span>
+                  <span class="model-card-title">Auto-Auswahl</span>
+                </span>
+                <p class="model-card-desc">Vantero waehlt automatisch das passende Modell.</p>
+              </button>
             </div>
           </div>
         </div>
@@ -694,57 +1108,6 @@
             <div class="media-overlay">
               <h3>US-Power. Deutscher Bodyguard.</h3>
               <p>Sichere Modelle durch EU-konforme Datenzonen.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="preise" class="section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Einfache, faire Preise</h2>
-            <p>Alle Modelle, alle Features. Transparente monatliche Plaene.</p>
-          </div>
-          <div class="grid pricing">
-            <div class="price-card">
-              <h3>Free</h3>
-              <p class="price">0 EUR</p>
-              <ul>
-                <li>20.000 Tokens/Tag</li>
-                <li>Alle Modelle</li>
-                <li>Community Support</li>
-              </ul>
-              <button class="secondary-btn">Kostenlos starten</button>
-            </div>
-            <div class="price-card highlight">
-              <h3>Basic</h3>
-              <p class="price">8,99 EUR</p>
-              <ul>
-                <li>2M Tokens/Monat</li>
-                <li>E-Mail Support</li>
-                <li>Alle Modelle</li>
-              </ul>
-              <button class="primary-btn">Jetzt starten</button>
-            </div>
-            <div class="price-card">
-              <h3>Pro</h3>
-              <p class="price">17,99 EUR</p>
-              <ul>
-                <li>5M Tokens/Monat</li>
-                <li>Priority Support</li>
-                <li>API-Zugang</li>
-              </ul>
-              <button class="secondary-btn">Jetzt starten</button>
-            </div>
-            <div class="price-card">
-              <h3>Team</h3>
-              <p class="price">44,99 EUR</p>
-              <ul>
-                <li>Bis zu 6 Nutzer</li>
-                <li>Team-Workspaces</li>
-                <li>12M Tokens/Monat</li>
-              </ul>
-              <button class="secondary-btn">Team starten</button>
             </div>
           </div>
         </div>
@@ -899,6 +1262,8 @@
         <div class="model-modal-columns" aria-hidden="true">
           <span>Modell</span>
           <span>Fähigkeiten</span>
+          <span>Context</span>
+          <span>Faktor</span>
         </div>
 
         <div class="model-modal-body">
@@ -948,9 +1313,9 @@
               <span class="zone-flag" aria-hidden="true">🇪🇺</span>
               <span>Europa</span>
             </button>
-            <button class="zone-btn" type="button" data-zone="world">
-              <span class="zone-flag" aria-hidden="true">🌍</span>
-              <span>Weltweit</span>
+            <button class="zone-btn" type="button" data-zone="us">
+              <span class="zone-flag" aria-hidden="true">🇺🇸</span>
+              <span>USA</span>
             </button>
           </div>
         </div>
@@ -973,6 +1338,71 @@
           <button class="auto-config-back" data-auto-config-close type="button">
             Zurück zur Auswahl
           </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-arena-modal aria-hidden="true">
+      <div class="overlay-backdrop" data-arena-close></div>
+      <div
+        class="overlay-panel arena-config"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="arenaTitle"
+        tabindex="-1"
+      >
+        <div class="arena-top">
+          <div class="arena-head">
+            <h3 id="arenaTitle">Arena-Modus</h3>
+            <p class="arena-subtitle">
+              Konfiguriere den Arena-Modus für Modellvergleiche.
+            </p>
+          </div>
+          <button
+            class="overlay-close"
+            data-arena-close
+            aria-label="Schließen"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="arena-section">
+          <p class="arena-label">Anzahl Modelle</p>
+          <div class="arena-count" role="radiogroup" aria-label="Anzahl Modelle">
+            <button class="arena-pill" type="button" data-arena-count="2">2</button>
+            <button class="arena-pill is-active" type="button" data-arena-count="3">
+              3
+            </button>
+            <button class="arena-pill" type="button" data-arena-count="4">4</button>
+          </div>
+        </div>
+
+        <div class="arena-section">
+          <p class="arena-label">Modus</p>
+          <div class="arena-mode" role="radiogroup" aria-label="Arena Modus">
+            <button class="arena-mode-btn is-active" type="button" data-arena-view="blind">
+              Battle (blind)
+            </button>
+            <button class="arena-mode-btn" type="button" data-arena-view="side">
+              Side-by-Side
+            </button>
+          </div>
+        </div>
+
+        <div class="arena-actions">
+          <button class="arena-apply" data-arena-apply type="button">Übernehmen</button>
+          <button class="arena-back" data-arena-close type="button">
+            Zurück zur Auswahl
+          </button>
+
+          <div class="arena-shortcuts">
+            <button class="arena-link" type="button" data-arena-leaderboard>
+              Leaderboard
+            </button>
+            <button class="arena-link" type="button" data-arena-history>Verlauf</button>
+          </div>
         </div>
       </div>
     </div>
