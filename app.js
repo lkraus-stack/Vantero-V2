@@ -2,12 +2,22 @@ document.documentElement.classList.add("js");
 
 const header = document.querySelector(".site-header");
 if (header) {
+  let headerTicking = false;
   const setHeaderState = () => {
     header.classList.toggle("is-scrolled", window.scrollY > 8);
   };
 
+  const onHeaderScroll = () => {
+    if (headerTicking) return;
+    headerTicking = true;
+    window.requestAnimationFrame(() => {
+      setHeaderState();
+      headerTicking = false;
+    });
+  };
+
   setHeaderState();
-  window.addEventListener("scroll", setHeaderState, { passive: true });
+  window.addEventListener("scroll", onHeaderScroll, { passive: true });
 }
 
 const navToggle = document.querySelector("[data-nav-toggle]");
@@ -1031,7 +1041,7 @@ const renderModelRow = (model) => {
   const factor = model.factorLabel ?? "";
 
   const logoHtml = model.logo
-    ? `<img src="${model.logo}" alt="${model.provider}" loading="lazy" />`
+    ? `<img src="${model.logo}" alt="${model.provider}" loading="lazy" decoding="async" />`
     : `<span class="model-logo-fallback">${model.provider.slice(0, 1)}</span>`;
 
   const caps = [
@@ -1705,10 +1715,101 @@ const setupPricingBilling = () => {
   setBilling("monthly");
 };
 
+const setupAmbientParallax = () => {
+  const root = document.documentElement;
+  const noReducedMotion = window.matchMedia("(prefers-reduced-motion: no-preference)");
+  const largeViewport = window.matchMedia("(min-width: 960px)");
+
+  let enabled = false;
+  let rafId = 0;
+  let lastFrameTs = 0;
+  let lastAmbient = null;
+  let lastPanther = null;
+  const minFrameMs = 28;
+
+  const resetVars = () => {
+    root.style.setProperty("--ambient-parallax-y", "0px");
+    root.style.setProperty("--hero-panther-shift", "0px");
+    lastAmbient = "0px";
+    lastPanther = "0px";
+  };
+
+  const render = (timestamp) => {
+    rafId = 0;
+    if (!enabled) return;
+
+    if (timestamp - lastFrameTs < minFrameMs) {
+      rafId = window.requestAnimationFrame(render);
+      return;
+    }
+    lastFrameTs = timestamp;
+
+    const scrollY = window.scrollY || 0;
+    const ambientShift = Math.max(-12, Math.min(12, scrollY * -0.012));
+    const pantherShift = Math.max(-16, Math.min(16, scrollY * -0.03));
+    const ambientValue = `${ambientShift.toFixed(2)}px`;
+    const pantherValue = `${pantherShift.toFixed(2)}px`;
+
+    if (ambientValue !== lastAmbient) {
+      root.style.setProperty("--ambient-parallax-y", ambientValue);
+      lastAmbient = ambientValue;
+    }
+    if (pantherValue !== lastPanther) {
+      root.style.setProperty("--hero-panther-shift", pantherValue);
+      lastPanther = pantherValue;
+    }
+  };
+
+  const requestRender = () => {
+    if (!enabled || rafId) return;
+    rafId = window.requestAnimationFrame(render);
+  };
+
+  const onScroll = () => requestRender();
+
+  const setEnabled = (nextEnabled) => {
+    if (nextEnabled === enabled) return;
+    enabled = nextEnabled;
+
+    if (enabled) {
+      window.addEventListener("scroll", onScroll, { passive: true });
+      requestRender();
+      return;
+    }
+
+    window.removeEventListener("scroll", onScroll);
+    if (rafId) {
+      window.cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
+    lastFrameTs = 0;
+    resetVars();
+  };
+
+  const syncMode = () => setEnabled(noReducedMotion.matches && largeViewport.matches);
+
+  const bindMediaChange = (queryList, handler) => {
+    if (typeof queryList.addEventListener === "function") {
+      queryList.addEventListener("change", handler);
+      return;
+    }
+    if (typeof queryList.addListener === "function") {
+      queryList.addListener(handler);
+    }
+  };
+
+  bindMediaChange(noReducedMotion, syncMode);
+  bindMediaChange(largeViewport, syncMode);
+  syncMode();
+};
+
 const setupScrollReveals = () => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) return;
   if (!("IntersectionObserver" in window)) return;
+
+  const cappedDelay = (index, step = 55, maxSteps = 6) =>
+    Math.min(Math.max(index, 0), maxSteps) * step;
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -1718,7 +1819,7 @@ const setupScrollReveals = () => {
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+    { threshold: 0.24, rootMargin: "0px 0px -6% 0px" }
   );
 
   const addReveal = (el, delay = 0) => {
@@ -1729,25 +1830,30 @@ const setupScrollReveals = () => {
   };
 
   Array.from(document.querySelectorAll(".hero-content > *")).forEach((el, i) => {
-    addReveal(el, i * 70);
+    addReveal(el, cappedDelay(i, 60, 5));
   });
 
   document.querySelectorAll(".section-header").forEach((el) => addReveal(el, 0));
 
   document.querySelectorAll(".split").forEach((split) => {
-    Array.from(split.children).forEach((child, i) => addReveal(child, i * 90));
+    Array.from(split.children).forEach((child, i) => addReveal(child, cappedDelay(i, 80, 2)));
   });
 
   document.querySelectorAll(".grid").forEach((grid) => {
-    grid.querySelectorAll(".card, .price-card").forEach((el, i) => addReveal(el, i * 70));
+    const items = Array.from(
+      grid.querySelectorAll(":scope > .card, :scope > .price-card, :scope > .app-feature-card")
+    );
+    items.forEach((el, i) => addReveal(el, cappedDelay(i, 50, 6)));
   });
 
   document.querySelectorAll(".media-card").forEach((el) => addReveal(el, 60));
-  document.querySelectorAll(".badge").forEach((el, i) => addReveal(el, i * 60));
-  document.querySelectorAll(".faq-item").forEach((el, i) => addReveal(el, i * 50));
+  document.querySelectorAll(".badge").forEach((el, i) => addReveal(el, cappedDelay(i, 46, 4)));
+  document.querySelectorAll(".faq-item").forEach((el, i) => addReveal(el, cappedDelay(i, 44, 4)));
   document.querySelectorAll(".cta-card").forEach((el) => addReveal(el, 0));
 };
 
+setupAnchorFlow();
+setupAmbientParallax();
 setupScrollReveals();
 setupPricingBilling();
 

@@ -30,8 +30,7 @@
           <a href="#features">Funktionen</a>
           <a href="#models">Modelle</a>
           <a href="#plattform">Plattform</a>
-          <a href="#collab">Team</a>
-          <a href="#security">DSGVO</a>
+          <a href="#infra">DSGVO</a>
           <a href="#infra">Infrastruktur</a>
           <a href="#preise">Preise</a>
           <a href="#faq">FAQ</a>
@@ -985,26 +984,103 @@
 
       <section id="features" class="section alt">
         <div class="container">
-          <div class="section-header">
-            <h2>Content-Erstellung leicht gemacht</h2>
-            <p>Schreiben, bearbeiten, exportieren - alles direkt im Chat.</p>
-          </div>
-          <div class="grid features">
-            <div class="card">
-              <h3>Dokument-Editor</h3>
-              <p>Erstelle Artikel und exportiere als PDF oder DOCX.</p>
+          <div class="features-layout">
+            <div class="features-intro">
+              <p class="eyebrow">Content Hub</p>
+              <h2>Content-Erstellung leicht gemacht</h2>
+              <p class="features-lead">
+                Schreiben, verbessern und exportieren - in einem durchgängigen
+                Workflow direkt im Chat.
+              </p>
+              <ul class="checklist features-benefits">
+                <li>Von der Idee bis zum finalen Dokument ohne Tool-Wechsel</li>
+                <li>Klare Ergebnisse durch strukturierte Prompts und Live-Iteration</li>
+                <li>Wissen bleibt im Team statt in einzelnen Chats verloren</li>
+              </ul>
             </div>
-            <div class="card">
-              <h3>Prompt-Verbesserung</h3>
-              <p>Verwandle vage Inputs in klare, strukturierte Prompts.</p>
-            </div>
-            <div class="card">
-              <h3>Echtzeit-Bearbeitung</h3>
-              <p>Bearbeite Input und Output mitten im Chat.</p>
-            </div>
-            <div class="card">
-              <h3>Prompt-Bibliothek</h3>
-              <p>Speichere deine besten Prompts für Teams.</p>
+
+            <div class="grid features-grid">
+              <article class="card feature-item feature-primary">
+                <div class="feature-head">
+                  <span class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M7 4.5h7l4 4V19.5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-14a1 1 0 0 1 1-1z" />
+                      <path d="M14 4.5v4h4" />
+                      <path d="M9 11h6M9 15h6" />
+                    </svg>
+                  </span>
+                  <span class="feature-kicker">Primary Feature</span>
+                </div>
+                <h3>Dokument-Editor</h3>
+                <p class="feature-usecase">
+                  Erstelle Artikel, Konzepte oder SOPs direkt im Chat und
+                  exportiere sie als PDF oder DOCX.
+                </p>
+                <p class="feature-outcome">
+                  Ergebnis: Publizierbare Inhalte in Minuten statt in mehreren
+                  Tools.
+                </p>
+              </article>
+
+              <article class="card feature-item">
+                <div class="feature-head">
+                  <span class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M5 6h14M5 12h9M5 18h6" />
+                      <path d="M15 12l2 2 4-4" />
+                    </svg>
+                  </span>
+                  <span class="feature-kicker">Qualitaet</span>
+                </div>
+                <h3>Prompt-Verbesserung</h3>
+                <p class="feature-usecase">
+                  Verwandle vage Inputs in klare, strukturierte Prompts mit
+                  besserem Kontext und genauer Zieldefinition.
+                </p>
+                <p class="feature-outcome">
+                  Ergebnis: Konstant bessere Antworten bei weniger Nacharbeit.
+                </p>
+              </article>
+
+              <article class="card feature-item">
+                <div class="feature-head">
+                  <span class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M7 7h10v10H7z" />
+                      <path d="M4 12h3M17 12h3M12 4v3M12 17v3" />
+                    </svg>
+                  </span>
+                  <span class="feature-kicker">Workflow</span>
+                </div>
+                <h3>Echtzeit-Bearbeitung</h3>
+                <p class="feature-usecase">
+                  Passe Input und Output mitten im Chat an und sieh sofort, wie
+                  sich das Ergebnis verbessert.
+                </p>
+                <p class="feature-outcome">
+                  Ergebnis: Schnelle Iteration ohne Kontextverlust.
+                </p>
+              </article>
+
+              <article class="card feature-item">
+                <div class="feature-head">
+                  <span class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M6 5.5h12a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1z" />
+                      <path d="M9 9.5h6M9 13.5h4" />
+                    </svg>
+                  </span>
+                  <span class="feature-kicker">Teamwissen</span>
+                </div>
+                <h3>Prompt-Bibliothek</h3>
+                <p class="feature-usecase">
+                  Speichere deine besten Prompts zentral und stelle sie Teams
+                  konsistent in Workspaces zur Verfuegung.
+                </p>
+                <p class="feature-outcome">
+                  Ergebnis: Wiederverwendbare Standards statt Copy-Paste-Chaos.
+                </p>
+              </article>
             </div>
           </div>
         </div>
@@ -1017,81 +1093,71 @@
             <p>Einmal definieren, überall nutzen - für alle Modelle.</p>
           </div>
           <div class="grid personas">
-            <div class="card">
-              <h3>Marketing-Experte</h3>
-              <p>Landing Pages, Ads, E-Mail-Sequenzen.</p>
-            </div>
-            <div class="card">
-              <h3>YouTube-Creator</h3>
-              <p>Optimierte Titel, Skripte und Thumbnails.</p>
-            </div>
-            <div class="card">
-              <h3>Copywriter</h3>
-              <p>Storytelling, Claims und A/B Varianten.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="collab" class="section alt">
-        <div class="container split">
-          <div>
-            <h2>Team-Zusammenarbeit ohne Reibung</h2>
-            <p>
-              Lade Kollegen direkt in Live-Chats ein, teile Threads als
-              schreibgeschützte Links und steuere Rollen pro Workspace.
-            </p>
-            <ul class="checklist">
-              <li>Live-Kollaboration</li>
-              <li>Nur-Lesen Freigabe</li>
-              <li>Rollenbasierte Workspaces</li>
-              <li>Zentrale Dateien pro Projekt</li>
-            </ul>
-          </div>
-          <div class="media-card">
-            <img
-              src="./assets/vantero-hero.png"
-              alt="Vantero Interface"
-              loading="lazy"
-              width="1024"
-              height="576"
-            />
-            <div class="media-overlay">
-              <h3>Produktvorschau</h3>
-              <p>Teile Prompts, Ergebnisse und Modelle in Echtzeit.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="security" class="section">
-        <div class="container split">
-          <div class="media-card">
-            <img
-              src="./assets/security-dsgvo.png"
-              alt="Sicher und DSGVO-konform"
-              loading="lazy"
-              width="1024"
-              height="1024"
-            />
-            <div class="media-overlay">
-              <h3>Sicher. Deutsch. DSGVO-konform.</h3>
-              <p>Deine Daten bleiben in Deutschland oder der EU.</p>
-            </div>
-          </div>
-          <div>
-            <h2>100% DSGVO-konform</h2>
-            <p>
-              Deine Daten bleiben in Deutschland. Kein Training, keine
-              Weitergabe. Hosting bei zertifizierten Rechenzentren.
-            </p>
-            <ul class="checklist">
-              <li>Hosting bei IONOS in Frankfurt</li>
-              <li>ISO 27001 zertifiziert</li>
-              <li>AVV und TOM auf Anfrage</li>
-              <li>EU-Zonen Auswahl für Verarbeitung</li>
-              <li>Zero-Retention für Web-Suche</li>
-            </ul>
+            <article class="card persona-card persona-marketing">
+              <div class="persona-head">
+                <span class="persona-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M4 18h16" />
+                    <path d="M7 14V9" />
+                    <path d="M12 14V6" />
+                    <path d="M17 14v-3" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="persona-role">Persona</p>
+                  <h3>Marketing-Experte</h3>
+                </div>
+              </div>
+              <p class="persona-description">Landing Pages, Ads, E-Mail-Sequenzen.</p>
+              <ul class="persona-tags">
+                <li>Conversion</li>
+                <li>Ads</li>
+                <li>Funnels</li>
+              </ul>
+            </article>
+            <article class="card persona-card persona-youtube">
+              <div class="persona-head">
+                <span class="persona-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <rect x="3.5" y="6.5" width="17" height="11" rx="3" />
+                    <path d="M10 9.5l5 2.5-5 2.5z" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="persona-role">Persona</p>
+                  <h3>YouTube-Creator</h3>
+                </div>
+              </div>
+              <p class="persona-description">
+                Optimierte Titel, Skripte und Thumbnails.
+              </p>
+              <ul class="persona-tags">
+                <li>Hooks</li>
+                <li>Retention</li>
+                <li>Thumbnails</li>
+              </ul>
+            </article>
+            <article class="card persona-card persona-copywriter">
+              <div class="persona-head">
+                <span class="persona-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M6 6.5h12v11H6z" />
+                    <path d="M9 10h6" />
+                    <path d="M9 13.5h4.5" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="persona-role">Persona</p>
+                  <h3>Copywriter</h3>
+                </div>
+              </div>
+              <p class="persona-description">Storytelling, Claims und A/B Varianten.</p>
+              <ul class="persona-tags">
+                <li>Story</li>
+                <li>Claims</li>
+                <li>A/B Tests</li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -1190,8 +1256,7 @@
         </div>
         <div>
           <h4>Unternehmen</h4>
-          <a href="#security">Sicherheit</a>
-          <a href="#collab">Team</a>
+          <a href="#infra">Sicherheit</a>
           <a href="#infra">Infrastruktur</a>
         </div>
         <div>
