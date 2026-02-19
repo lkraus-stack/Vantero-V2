@@ -1,3 +1,60 @@
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("./lemon_milk/LEMONMILK-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("./lemon_milk/LEMONMILK-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("./lemon_milk/LEMONMILK-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("./lemon_milk/LEMONMILK-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("./lemon_milk/LEMONMILK-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("./lemon_milk/LEMONMILK-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("./lemon_milk/LEMONMILK-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("./lemon_milk/LEMONMILK-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -163,7 +220,9 @@ h1,
 h2,
 h3,
 h4 {
-  letter-spacing: -0.01em;
+  font-family: "Lemon Milk", "Inter", sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -219,8 +278,11 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  font-family: "Lemon Milk", "Inter", sans-serif;
   font-weight: 700;
   font-size: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .logo-mark {
@@ -597,53 +659,65 @@ h3 {
 /* ── Hero Panther Background Image ── */
 .hero-panther {
   position: absolute;
-  left: -8%;
-  top: 42%;
-  transform: translateY(-50%);
-  width: clamp(480px, 52vw, 900px);
-  height: auto;
-  opacity: 0.38;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.32;
   z-index: 0;
-  filter:
-    drop-shadow(0 0 80px rgba(56, 189, 248, 0.25))
-    drop-shadow(0 0 160px rgba(99, 102, 241, 0.15));
   pointer-events: none;
   user-select: none;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: 38% 40%;
+  filter:
+    brightness(0.7)
+    saturate(1.3)
+    drop-shadow(0 0 120px rgba(56, 189, 248, 0.2));
   transition: opacity var(--dur-slow) var(--ease-soft);
-
-  /* Radiale + lineare Masken für nahtloses Einfließen */
-  -webkit-mask-image:
-    radial-gradient(
-      ellipse 80% 70% at 40% 50%,
-      rgba(0, 0, 0, 0.9) 15%,
-      rgba(0, 0, 0, 0.5) 45%,
-      rgba(0, 0, 0, 0.15) 70%,
-      transparent 100%
-    );
-  mask-image:
-    radial-gradient(
-      ellipse 80% 70% at 40% 50%,
-      rgba(0, 0, 0, 0.9) 15%,
-      rgba(0, 0, 0, 0.5) 45%,
-      rgba(0, 0, 0, 0.15) 70%,
-      transparent 100%
-    );
-
   mix-blend-mode: lighten;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 50% 45%,
+      rgba(5, 8, 20, 0.72) 0%,
+      rgba(5, 8, 20, 0.35) 40%,
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 8, 20, 0.6) 0%,
+      rgba(5, 8, 20, 0.15) 18%,
+      transparent 40%,
+      transparent 65%,
+      rgba(5, 8, 20, 0.5) 88%,
+      rgba(5, 8, 20, 0.85) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 8, 20, 0.55) 0%,
+      transparent 20%,
+      transparent 80%,
+      rgba(5, 8, 20, 0.55) 100%
+    );
 }
 
 @media (max-width: 1100px) {
   .hero-panther {
-    opacity: 0.25;
-    left: -12%;
-    width: clamp(360px, 46vw, 600px);
+    opacity: 0.24;
+    object-position: 35% 42%;
   }
 }
 
 @media (max-width: 768px) {
   .hero-panther {
-    display: none;
+    opacity: 0.16;
+    object-position: 30% 40%;
   }
 }
 
@@ -762,10 +836,11 @@ h3 {
 }
 
 .eyebrow {
-  font-weight: 600;
+  font-family: "Lemon Milk", "Inter", sans-serif;
+  font-weight: 500;
   color: var(--primary-strong);
   margin-bottom: 0;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   font-size: 12px;
 }
@@ -2958,6 +3033,10 @@ body.overlay-open {
 .badge {
   padding: 12px 14px;
   border-radius: 12px;
+  font-family: "Lemon Milk", "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-size: 13px;
   background: rgba(15, 23, 42, 0.8);
   border: 1px solid var(--stroke);
   font-weight: 600;
@@ -3016,7 +3095,10 @@ body.overlay-open {
 
 #preise .pricing-billing {
   margin: 0 auto clamp(16px, 2.6vw, 22px);
-  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   padding: 7px;
@@ -3102,6 +3184,8 @@ body.overlay-open {
 #preise .price-card-head {
   display: grid;
   gap: 4px;
+  min-height: 58px;
+  align-content: start;
 }
 
 #preise .price-card h3 {
@@ -3110,14 +3194,16 @@ body.overlay-open {
 }
 
 #preise .price-note {
+  margin: 0;
   color: var(--muted);
   font-size: 14px;
 }
 
 #preise .pricing .price {
   margin: 0;
+  min-height: 52px;
   display: inline-flex;
-  align-items: baseline;
+  align-items: flex-end;
   gap: 8px;
 }
 
@@ -3139,22 +3225,36 @@ body.overlay-open {
 #preise .price-card ul {
   list-style: none;
   display: grid;
-  gap: 9px;
+  gap: 0;
+  grid-auto-rows: minmax(44px, auto);
+  align-content: start;
   margin: 2px 0 0;
+  padding: 0;
   color: #c1d0e6;
   flex: 1 1 auto;
 }
 
 #preise .price-card li {
   position: relative;
-  padding-left: 18px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  min-height: 44px;
+  padding: 0 0 0 18px;
+  line-height: 1.45;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+#preise .price-card li:last-child {
+  border-bottom: 0;
 }
 
 #preise .price-card li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.62em;
+  top: 50%;
+  transform: translateY(-50%);
   width: 6px;
   height: 6px;
   border-radius: 999px;
@@ -3171,7 +3271,10 @@ body.overlay-open {
 }
 
 #preise .price-card.highlight {
+  overflow: visible;
   border-color: rgba(103, 232, 249, 0.54);
+  outline: 1px solid rgba(125, 211, 252, 0.24);
+  outline-offset: -1px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     0 26px 52px rgba(56, 189, 248, 0.26);
@@ -3181,17 +3284,34 @@ body.overlay-open {
     var(--card);
 }
 
+#preise .price-card.highlight::before {
+  opacity: 0.55;
+}
+
 #preise .price-badge {
-  justify-self: start;
-  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  white-space: nowrap;
+  margin: 0;
+  padding: 6px 14px;
   border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  line-height: 1;
   color: #dff7ff;
   background: linear-gradient(120deg, rgba(56, 189, 248, 0.34), rgba(99, 102, 241, 0.44));
   border: 1px solid rgba(125, 211, 252, 0.5);
+  box-shadow: 0 8px 20px rgba(14, 116, 144, 0.28);
 }
 
 #preise .pricing-trust {
@@ -3355,6 +3475,8 @@ body.overlay-open {
 }
 
 #apps .app-feature-card h3 {
+  font-family: "Lemon Milk", sans-serif;
+  font-weight: 400;
   color: #0f172a;
   font-size: clamp(22px, 2vw, 28px);
   line-height: 1.15;
