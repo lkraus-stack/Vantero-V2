@@ -674,6 +674,7 @@ h3 {
   justify-content: center;
   align-items: center;
   overflow-x: auto;
+  padding-top: 8px;
   padding-bottom: 8px;
   scrollbar-width: none;
   scroll-snap-type: x proximity;
@@ -715,7 +716,7 @@ h3 {
 .model-chip::before {
   content: "";
   position: absolute;
-  inset: -1px;
+  inset: 0;
   border-radius: inherit;
   border: 1px solid rgba(148, 163, 184, 0.28);
   pointer-events: none;
@@ -751,7 +752,7 @@ h3 {
 
   .model-chip:hover::before {
     border-color: rgba(56, 189, 248, 0.7);
-    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35);
+    box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.35);
   }
 
   .model-chip:hover .model-icon {
@@ -815,7 +816,8 @@ h3 {
   margin-top: clamp(52px, 7vw, 96px);
   background: rgba(8, 12, 22, 0.92);
   border: 0;
-  border-radius: clamp(18px, 2.4vw, 24px);
+  --prompt-card-radius: clamp(18px, 2.4vw, 24px);
+  border-radius: var(--prompt-card-radius);
   padding: clamp(16px, 3vw, 22px);
   display: grid;
   gap: clamp(12px, 2.6vw, 18px);
@@ -832,6 +834,8 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: var(--prompt-card-radius);
+  clip-path: inset(0 round var(--prompt-card-radius));
   z-index: 0;
   background: radial-gradient(
       circle at 15% 20%,
@@ -847,7 +851,8 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: inherit;
+  border-radius: var(--prompt-card-radius);
+  clip-path: inset(0 round var(--prompt-card-radius));
   padding: 1px;
   background: linear-gradient(
     135deg,
@@ -3796,7 +3801,8 @@ body.overlay-open {
   .prompt-card {
     margin-top: 22px;
     padding: 16px;
-    border-radius: 18px;
+    --prompt-card-radius: 18px;
+    border-radius: var(--prompt-card-radius);
   }
 
   .prompt-field {
