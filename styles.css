@@ -1344,7 +1344,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
+  padding: 2px;
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
 }
 
@@ -1567,7 +1567,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 4px;
   flex-shrink: 0;
 }
 
@@ -4031,7 +4031,7 @@ body.overlay-open {
 }
 
 .footer-logo .logo-mark {
-  background: linear-gradient(135deg, #38bdf8, #22d3ee);
+  background: rgba(15, 23, 42, 0.7);
 }
 
 .footer-bottom {
