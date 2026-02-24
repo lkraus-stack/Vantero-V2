@@ -71,28 +71,6 @@ const CONFIG = {
       curve: { x: -22, y: -18 },
     },
   ],
-  texts: {
-    headline: "Alle KI-Modelle. Eine Plattform.",
-    subline:
-      "Vantero verbindet die führenden KI-Modelle in einem einzigen sicheren Workspace – zu einem Preis.",
-    features: [
-      {
-        icon: "🔒",
-        title: "Ihre Daten bleiben bei Ihnen",
-        body: "Keine Weitergabe an OpenAI, Anthropic oder Google.",
-      },
-      {
-        icon: "🔄",
-        title: "Modell-unabhängig",
-        body: "Wechseln Sie zwischen Claude, GPT-4 und Gemini mit einem Klick.",
-      },
-      {
-        icon: "💶",
-        title: "Ein Abo, alle Modelle",
-        body: "Sparen Sie bis zu 70% gegenüber mehreren Einzelabos.",
-      },
-    ],
-  },
 };
 
 const CENTER = 300;
@@ -137,8 +115,6 @@ export default function AIFlowSection() {
 
   const logoControls = useAnimationControls();
   const centerControls = useAnimationControls();
-  const featureControls = useAnimationControls();
-
   const models = useMemo(() => CONFIG.models.map(buildLayout), []);
 
   useEffect(() => {
@@ -147,7 +123,6 @@ export default function AIFlowSection() {
       setPhase("reduced");
       logoControls.set("static");
       centerControls.set("static");
-      featureControls.set("static");
       return;
     }
 
@@ -170,7 +145,6 @@ export default function AIFlowSection() {
         if (isCancelled) return;
         setPhase("phase3");
         centerControls.start("reveal");
-        featureControls.start("show");
       }, PHASE_2_DELAY + PHASE_3_DELAY)
     );
 
@@ -187,7 +161,7 @@ export default function AIFlowSection() {
       isCancelled = true;
       timers.forEach((timer) => window.clearTimeout(timer));
     };
-  }, [inView, reduceMotion, logoControls, centerControls, featureControls]);
+  }, [inView, reduceMotion, logoControls, centerControls]);
 
   const logoVariants = {
     hidden: (model) => ({
@@ -255,16 +229,6 @@ export default function AIFlowSection() {
     },
   };
 
-  const featureVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: (index) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: index * 0.15, duration: 0.5, ease: "easeOut" },
-    }),
-    static: { opacity: 1, y: 0 },
-  };
-
   return (
     <section
       ref={containerRef}
@@ -274,7 +238,7 @@ export default function AIFlowSection() {
       data-reduced-motion={reduceMotion ? "true" : "false"}
     >
       <div className="container">
-        <div className="grid items-center gap-10 md:grid-cols-[1.05fr_0.95fr] lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="ai-flow-layout">
           <div className="ai-flow-visual">
             <div className="ai-flow-canvas">
               <div className="ai-flow-nebula" aria-hidden="true" />
@@ -426,39 +390,6 @@ export default function AIFlowSection() {
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="ai-flow-copy">
-            <h2 className="ai-flow-headline text-[clamp(2rem,4vw,3rem)] font-bold text-[#f8fafc]">
-              {CONFIG.texts.headline}
-            </h2>
-            <p className="ai-flow-subline mt-4 text-[1.05rem] text-[#94a3b8]">
-              {CONFIG.texts.subline}
-            </p>
-
-            <motion.ul className="mt-8 grid gap-6" initial="hidden" animate={featureControls}>
-              {CONFIG.texts.features.map((feature, index) => (
-                <motion.li
-                  key={feature.title}
-                  className="ai-flow-feature"
-                  custom={index}
-                  variants={featureVariants}
-                >
-                  <span className="ai-flow-feature-icon" aria-hidden="true">
-                    {feature.icon}
-                  </span>
-                  <div>
-                    <h3 className="ai-flow-feature-title text-[1.1rem] font-semibold text-[#f8fafc]">
-                      {feature.title}
-                    </h3>
-                    <p className="ai-flow-feature-body text-[0.95rem] text-[#94a3b8]">
-                      {feature.body}
-                    </p>
-                  </div>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </div>
         </div>
       </div>
     </section>
