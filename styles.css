@@ -547,8 +547,9 @@ h3 {
   --section-surface: rgba(7, 13, 28, 0.58);
   --section-seam-top: rgba(8, 14, 30, 0.78);
   --section-seam-bottom: rgba(8, 14, 30, 0.72);
-  padding: var(--section-pad) 0;
-  min-height: auto;
+  padding: clamp(88px, 9vw, 132px) 0;
+  min-height: calc(100vh - 72px);
+  min-height: calc(100svh - 72px);
   background: linear-gradient(
     180deg,
     var(--section-seam-top) 0%,
@@ -4390,9 +4391,14 @@ body.overlay-open {
     display: none;
   }
 
-  .section,
-  #ai-flow-root .ai-flow-section {
+  .section {
     padding: var(--section-pad-sm) 0;
+  }
+
+  #ai-flow-root .ai-flow-section {
+    padding: clamp(72px, 12vw, 96px) 0;
+    min-height: calc(100vh - 64px);
+    min-height: calc(100svh - 64px);
   }
 
   .hero {
