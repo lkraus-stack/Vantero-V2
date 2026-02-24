@@ -74,7 +74,6 @@ const continueLink = document.querySelector("[data-continue-link]");
 const promptTextarea = document.querySelector(".prompt-textarea");
 const promptSend = document.querySelector("[data-prompt-send]");
 const promptCount = document.querySelector(".prompt-count");
-const pricingSection = document.querySelector("#preise");
 
 let closeModelMenu = null;
 
@@ -1668,21 +1667,22 @@ if (promptSend && promptTextarea) {
 }
 
 const setupPricingBilling = () => {
-  if (!pricingSection) return;
+  const section = document.querySelector("#preise");
+  if (!section) return;
 
-  const billingOptions = Array.from(pricingSection.querySelectorAll("[data-billing-option]"));
+  const billingOptions = Array.from(section.querySelectorAll("[data-billing-option]"));
   if (billingOptions.length === 0) return;
 
   const priceValues = Array.from(
-    pricingSection.querySelectorAll("[data-price-monthly][data-price-yearly]")
+    section.querySelectorAll("[data-price-monthly][data-price-yearly]")
   );
   const priceMetas = Array.from(
-    pricingSection.querySelectorAll("[data-meta-monthly][data-meta-yearly]")
+    section.querySelectorAll("[data-meta-monthly][data-meta-yearly]")
   );
 
   const setBilling = (mode) => {
     const activeMode = mode === "yearly" ? "yearly" : "monthly";
-    pricingSection.setAttribute("data-billing", activeMode);
+    section.setAttribute("data-billing", activeMode);
 
     billingOptions.forEach((btn) => {
       const isActive = btn.getAttribute("data-billing-option") === activeMode;
@@ -1706,13 +1706,32 @@ const setupPricingBilling = () => {
   };
 
   billingOptions.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
       const mode = btn.getAttribute("data-billing-option");
-      setBilling(mode);
+      if (mode) setBilling(mode);
     });
   });
 
   setBilling("monthly");
+};
+
+const setupAnchorFlow = () => {
+  const anchorLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
+  if (anchorLinks.length === 0) return;
+
+  anchorLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const rawHref = link.getAttribute("href");
+      if (!rawHref || rawHref === "#") return;
+
+      const target = document.querySelector(rawHref);
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
 };
 
 const setupAmbientParallax = () => {
@@ -1855,7 +1874,12 @@ const setupScrollReveals = () => {
 setupAnchorFlow();
 setupAmbientParallax();
 setupScrollReveals();
-setupPricingBilling();
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", setupPricingBilling);
+} else {
+  setupPricingBilling();
+}
 
 // ── Models section: interactive preview ──
 const setupModelsPreview = () => {
@@ -1879,13 +1903,17 @@ const setupModelsPreview = () => {
   const getCardData = (card) => {
     const titleEl = card.querySelector(".model-card-title");
     const descEl = card.querySelector(".model-card-desc");
+    const previewTitle = card.getAttribute("data-model-preview-title");
+    const previewDesc = card.getAttribute("data-model-preview-desc");
 
     return {
       id: card.getAttribute("data-model-id") ?? "",
       kicker: card.getAttribute("data-model-kicker") ?? "",
-      title: titleEl ? titleEl.textContent.trim() : "",
-      desc: descEl ? descEl.textContent.trim() : "",
-      pills: parsePills(card.getAttribute("data-model-pills")),
+      title: String(previewTitle ?? titleEl?.textContent ?? "").trim(),
+      desc: String(previewDesc ?? descEl?.textContent ?? "").trim(),
+      pills: parsePills(
+        card.getAttribute("data-model-preview-pills") ?? card.getAttribute("data-model-pills")
+      ),
     };
   };
 
@@ -1917,12 +1945,14 @@ const setupModelsPreview = () => {
     }
   };
 
-  cards.forEach((card) => {
-    card.addEventListener("click", () => {
-      const id = card.getAttribute("data-model-id");
-      if (!id) return;
-      setActive(id);
-    });
+  section.addEventListener("click", (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target) return;
+    const card = target.closest("[data-model-card][data-model-id]");
+    if (!card || !section.contains(card)) return;
+    const id = card.getAttribute("data-model-id");
+    if (!id) return;
+    setActive(id);
   });
 
   const initial =

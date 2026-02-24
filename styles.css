@@ -2998,6 +2998,16 @@ body.overlay-open {
   background: radial-gradient(circle at 30% 25%, rgba(251, 191, 36, 0.45), transparent 62%);
 }
 
+#plattform .benefit-icon.is-mobile {
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.45);
+  background: linear-gradient(150deg, rgba(10, 26, 24, 0.92), rgba(8, 16, 30, 0.82));
+}
+
+#plattform .benefit-icon.is-mobile::after {
+  background: radial-gradient(circle at 30% 25%, rgba(52, 211, 153, 0.45), transparent 62%);
+}
+
 .image-placeholder {
   background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.8));
   border-radius: 12px;
@@ -3220,11 +3230,13 @@ body.overlay-open {
 
 #models .models-checklist {
   margin-top: 6px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0;
+  grid-template-columns: 1fr;
   gap: 10px 18px;
   justify-items: center;
   text-align: center;
   max-width: 680px;
+  margin-inline: auto;
 }
 
 #models .models-checklist li {
@@ -3274,6 +3286,10 @@ body.overlay-open {
   border: 1px solid rgba(56, 189, 248, 0.22);
   box-shadow: 0 0 16px rgba(56, 189, 248, 0.12);
   flex: 0 0 auto;
+  color: #e8f6ff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 #models .model-card-icon img {
@@ -3281,6 +3297,16 @@ body.overlay-open {
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+#models .model-card-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 #models .model-card-icon.is-stack {
@@ -3449,6 +3475,8 @@ body.overlay-open {
   border: 1px solid rgba(191, 219, 254, 0.24);
   box-shadow: 0 14px 28px rgba(2, 6, 23, 0.34);
   backdrop-filter: blur(var(--glass-blur-strong));
+  position: relative;
+  z-index: 2;
 }
 
 #preise .billing-label {
@@ -3463,6 +3491,8 @@ body.overlay-open {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  position: relative;
+  z-index: 2;
 }
 
 #preise .billing-option {
@@ -3474,6 +3504,9 @@ body.overlay-open {
   color: #dbe7f8;
   background: rgba(15, 23, 42, 0.5);
   font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
   transition: transform var(--dur-med) var(--ease-out),
     border-color var(--dur-fast) var(--ease-out),
     background var(--dur-fast) var(--ease-out),
@@ -3497,6 +3530,7 @@ body.overlay-open {
   border-radius: 999px;
   border: 1px solid rgba(125, 211, 252, 0.45);
   background: linear-gradient(120deg, rgba(56, 189, 248, 0.28), rgba(99, 102, 241, 0.36));
+  pointer-events: none;
 }
 
 #preise .pricing {

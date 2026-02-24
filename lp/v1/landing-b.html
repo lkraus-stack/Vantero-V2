@@ -649,6 +649,17 @@
                   <h3>Ein Abo, alle Modelle</h3>
                   <p>Sparen Sie bis zu 70% gegenüber mehreren Einzelabos.</p>
                 </article>
+                <article class="card plattform-benefit">
+                  <span class="benefit-icon is-mobile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <rect x="7.2" y="3.5" width="9.6" height="17" rx="2" />
+                      <path d="M10 6.8h4" />
+                      <path d="M11.5 17.2h1" />
+                    </svg>
+                  </span>
+                  <h3>Auch als Mobil App</h3>
+                  <p>Auch als Mobil App, auf allen beliebigen Geräten verfügbar. Einfache Nutzung.</p>
+                </article>
               </div>
             </div>
           </div>
@@ -678,7 +689,8 @@
                 Claude, Gemini und mehr in einem Workflow.
               </p>
               <p class="models-hint">
-                Wähle ein Modell aus - die Karte aktualisiert sich sofort.
+                Wähle ein Modell oder einen Modus aus - Vorteile und Einsatzbereich
+                aktualisieren sich sofort.
               </p>
             </div>
 
@@ -703,6 +715,9 @@
                 data-model-id="gpt-5"
                 data-model-kicker="OpenAI"
                 data-model-pills="Brainstorming,Ideen,Reasoning"
+                data-model-preview-title="GPT-5"
+                data-model-preview-desc="Stark für kreative Konzepte, Strategie-Entwürfe und anspruchsvolles Reasoning."
+                data-model-preview-pills="Kreativ,Strategie,Reasoning"
                 aria-pressed="false"
               >
                 <span class="model-card-top">
@@ -721,6 +736,9 @@
                 data-model-id="claude"
                 data-model-kicker="Anthropic"
                 data-model-pills="Texte,Analysen,Reasoning"
+                data-model-preview-title="Claude"
+                data-model-preview-desc="Ideal für lange Inhalte, strukturierte Analysen und redaktionelle Feinarbeit."
+                data-model-preview-pills="Lange Texte,Analyse,Präzision"
                 aria-pressed="false"
               >
                 <span class="model-card-top">
@@ -739,6 +757,9 @@
                 data-model-id="gemini"
                 data-model-kicker="Google"
                 data-model-pills="Debugging,Code,Web"
+                data-model-preview-title="Gemini"
+                data-model-preview-desc="Besonders stark bei Debugging, technischem Verständnis und Code-Struktur."
+                data-model-preview-pills="Debugging,Code-Struktur,Technik"
                 aria-pressed="false"
               >
                 <span class="model-card-top">
@@ -757,6 +778,9 @@
                 data-model-id="mistral"
                 data-model-kicker="Mistral"
                 data-model-pills="Schnell,Effizient,Volumen"
+                data-model-preview-title="Mistral"
+                data-model-preview-desc="Sehr schnell bei hoher Last und kosteneffizient für regelmäßige Aufgaben."
+                data-model-preview-pills="Schnell,Skalierbar,Kosteneffizient"
                 aria-pressed="false"
               >
                 <span class="model-card-top">
@@ -775,6 +799,9 @@
                 data-model-id="open-source"
                 data-model-kicker="Open Source"
                 data-model-pills="Flexibel,On-Prem,Spezialfälle"
+                data-model-preview-title="Llama &amp; Qwen"
+                data-model-preview-desc="Flexible Open-Modelle für individuelle Anforderungen und On-Prem-Szenarien."
+                data-model-preview-pills="Open Source,Flexibel,On-Prem"
                 aria-pressed="false"
               >
                 <span class="model-card-top">
@@ -792,12 +819,99 @@
               </button>
 
               <button
+                class="card model-card"
+                type="button"
+                data-model-card
+                data-model-id="manual-mode"
+                data-model-kicker="Vantero Modus"
+                data-model-preview-title="Eigene Modelle &amp; Vorlieben"
+                data-model-preview-desc="Definiere Favoriten nach Aufgaben, Datenzone und Modellgröße - Vantero priorisiert genau deine Präferenzen."
+                data-model-preview-pills="Favoriten,Datenzonen,Modellgröße"
+                aria-pressed="false"
+              >
+                <span class="model-card-top">
+                  <span class="model-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M4 6h9" />
+                      <path d="M15 6h5" />
+                      <circle cx="12" cy="6" r="2" />
+                      <path d="M4 12h4" />
+                      <path d="M12 12h8" />
+                      <circle cx="10" cy="12" r="2" />
+                      <path d="M4 18h11" />
+                      <path d="M19 18h1" />
+                      <circle cx="17" cy="18" r="2" />
+                    </svg>
+                  </span>
+                  <span class="model-card-title">Eigene Vorlieben</span>
+                </span>
+                <p class="model-card-desc">Lege bevorzugte Modelle und Regeln selbst fest.</p>
+              </button>
+
+              <button
+                class="card model-card"
+                type="button"
+                data-model-card
+                data-model-id="arena-mode"
+                data-model-kicker="Vantero Modus"
+                data-model-preview-title="Arena-Modus"
+                data-model-preview-desc="Vergleiche Antworten von 2 bis 4 Modellen direkt nebeneinander oder im Blind-Battle."
+                data-model-preview-pills="Vergleich,2-4 Modelle,Blind-Battle"
+                aria-pressed="false"
+              >
+                <span class="model-card-top">
+                  <span class="model-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M8 5h8v4a4 4 0 0 1-8 0z" />
+                      <path d="M8 8H6a2 2 0 0 0 2 2" />
+                      <path d="M16 8h2a2 2 0 0 1-2 2" />
+                      <path d="M12 13v4" />
+                      <path d="M9 21h6" />
+                      <path d="M8.5 17h7" />
+                    </svg>
+                  </span>
+                  <span class="model-card-title">Arena-Modus</span>
+                </span>
+                <p class="model-card-desc">Modelle live vergleichen und schneller entscheiden.</p>
+              </button>
+
+              <button
+                class="card model-card"
+                type="button"
+                data-model-card
+                data-model-id="council-mode"
+                data-model-kicker="Vantero Modus"
+                data-model-preview-title="Council-Modus"
+                data-model-preview-desc="Mehrere Modelle diskutieren eine Aufgabe, ein Chair-Modell fasst die beste Antwort strukturiert zusammen."
+                data-model-preview-pills="Mehrere Modelle,Chair,Abgestimmte Antwort"
+                aria-pressed="false"
+              >
+                <span class="model-card-top">
+                  <span class="model-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <circle cx="8" cy="9" r="2.2" />
+                      <circle cx="16" cy="9" r="2.2" />
+                      <circle cx="12" cy="14" r="2.2" />
+                      <path d="M4.8 18.5a3.6 3.6 0 0 1 3.2-1.9h0.4" />
+                      <path d="M15.6 16.6h0.4a3.6 3.6 0 0 1 3.2 1.9" />
+                      <path d="M8.8 19.6A3.8 3.8 0 0 1 12 18a3.8 3.8 0 0 1 3.2 1.6" />
+                    </svg>
+                  </span>
+                  <span class="model-card-title">Council-Modus</span>
+                </span>
+                <p class="model-card-desc">Kombiniert Perspektiven mehrerer Modelle.</p>
+              </button>
+
+              <button
                 class="card model-card highlight is-active"
                 type="button"
                 data-model-card
                 data-model-id="auto"
                 data-model-kicker="Vantero"
                 data-model-pills="Automatisch,Kostenoptimiert,Sicher"
+                data-model-preview-title="Auto-Auswahl"
+                data-model-preview-desc="Vantero routet jede Anfrage dynamisch an das passendste Modell - Qualität, Kosten und Sicherheit im Gleichgewicht."
+                data-model-preview-pills="Automatisch,Kostenoptimiert,Sicher"
                 aria-pressed="true"
               >
                 <span class="model-card-top">
