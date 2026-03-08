@@ -5,6 +5,8 @@ const rootDir = process.cwd();
 const distDir = path.join(rootDir, "dist");
 const itemsToCopy = [
   "index.html",
+  "impressum.html",
+  "datenschutz.html",
   "styles.css",
   "app.js",
   "assets",
