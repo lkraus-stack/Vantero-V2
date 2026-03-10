@@ -550,18 +550,15 @@ a.secondary-btn {
 }
 
 #ai-flow-root .ai-flow-section {
-  --section-surface: rgba(7, 13, 28, 0.58);
-  --section-seam-top: rgba(8, 14, 30, 0.78);
-  --section-seam-bottom: rgba(8, 14, 30, 0.72);
-  padding: clamp(88px, 9vw, 132px) 0;
-  min-height: calc(100vh - 72px);
-  min-height: calc(100svh - 72px);
+  padding: clamp(48px, 6vw, 80px) 0;
+  min-height: 0;
   background: linear-gradient(
     180deg,
-    var(--section-seam-top) 0%,
-    var(--section-surface) 16%,
-    var(--section-surface) 84%,
-    var(--section-seam-bottom) 100%
+    #050814 0%,
+    rgba(5, 8, 20, 0.96) 15%,
+    rgba(7, 13, 28, 0.92) 50%,
+    rgba(5, 8, 20, 0.96) 85%,
+    rgba(5, 8, 20, 1) 100%
   );
 }
 
@@ -3602,6 +3599,7 @@ body.overlay-open {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 #preise .price-card ul {
@@ -4616,9 +4614,8 @@ body.overlay-open {
   }
 
   #ai-flow-root .ai-flow-section {
-    padding: clamp(72px, 12vw, 96px) 0;
-    min-height: calc(100vh - 64px);
-    min-height: calc(100svh - 64px);
+    padding: clamp(40px, 8vw, 64px) 0;
+    min-height: 0;
   }
 
   .hero {
