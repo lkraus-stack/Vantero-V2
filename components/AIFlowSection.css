@@ -8,9 +8,9 @@
   min-height: 0;
   display: flex;
   align-items: center;
-  padding: clamp(48px, 6vw, 80px) 0;
+  padding: clamp(140px, 16vw, 260px) 0;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
 }
 
@@ -232,6 +232,10 @@
 /* ── Responsive ── */
 
 @media (max-width: 1024px) {
+  .ai-flow-section {
+    padding: clamp(120px, 18vw, 220px) 0;
+  }
+
   .ai-flow-canvas {
     width: min(420px, 100%);
   }
@@ -239,11 +243,11 @@
 
 @media (max-width: 768px) {
   .ai-flow-section {
-    padding: 40px 0;
+    padding: clamp(100px, 16vw, 180px) 0;
   }
 
   .ai-flow-canvas {
-    width: 300px;
+    width: 320px;
   }
 }
 
