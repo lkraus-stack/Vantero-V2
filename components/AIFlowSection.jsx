@@ -17,7 +17,7 @@ const CONFIG = {
 
 const CENTER = 300;
 const RADIUS = 180;
-const STREAM_DURATION = 5;
+const STREAM_DURATION = 6.5;
 const STAGGER = STREAM_DURATION / CONFIG.models.length;
 
 const toRad = (deg) => (deg * Math.PI) / 180;
@@ -33,8 +33,9 @@ const buildLayout = (model, index) => {
 
 export default function AIFlowSection() {
   const containerRef = useRef(null);
-  const inView = useInView(containerRef, { amount: 0.3, once: true });
+  const inView = useInView(containerRef, { amount: 0.28 });
   const reduceMotion = useReducedMotion();
+  const shouldAnimate = inView && !reduceMotion;
   const models = useMemo(() => CONFIG.models.map((m, i) => buildLayout(m, i)), []);
 
   const streamVariant = {
@@ -94,25 +95,21 @@ export default function AIFlowSection() {
                   ))}
                 </g>
 
-                <g className="ai-flow-particles">
-                  {models.flatMap((model, mi) =>
-                    [0, 1].map((idx) => (
-                      <circle
-                        key={`${model.id}-p-${idx}`}
-                        className="ai-flow-particle"
-                        r={idx === 0 ? 2 : 1.4}
-                      >
+                {shouldAnimate ? (
+                  <g className="ai-flow-particles">
+                    {models.map((model, mi) => (
+                      <circle key={`${model.id}-p-0`} className="ai-flow-particle" r={1.8}>
                         <animateMotion
                           dur={`${STREAM_DURATION}s`}
                           repeatCount="indefinite"
-                          begin={`${mi * STAGGER + idx * 1.2}s`}
+                          begin={`${mi * STAGGER}s`}
                         >
                           <mpath href={`#ai-flow-path-${model.id}`} />
                         </animateMotion>
                       </circle>
-                    ))
-                  )}
-                </g>
+                    ))}
+                  </g>
+                ) : null}
               </svg>
 
               <div className="ai-flow-center-wrap">
@@ -124,6 +121,8 @@ export default function AIFlowSection() {
                     alt={`${CONFIG.brandName} Logo`}
                     loading="eager"
                     decoding="async"
+                    width="62"
+                    height="62"
                   />
                 </div>
               </div>
@@ -134,14 +133,21 @@ export default function AIFlowSection() {
                     className="ai-flow-logo"
                     custom={model}
                     initial={{ x: model.startX, y: model.startY, scale: 1, opacity: 1 }}
-                    animate={inView && !reduceMotion ? "animate" : "static"}
+                    animate={shouldAnimate ? "animate" : "static"}
                     variants={{ ...streamVariant, ...staticVariant }}
                     aria-label={`${model.name} Logo`}
                     role="img"
                   >
                     <div className="ai-flow-logo-inner">
                       <div className="ai-flow-logo-card" style={{ "--logo-color": model.color }}>
-                        <img src={model.iconSrc} alt={`${model.name} Logo`} loading="lazy" />
+                        <img
+                          src={model.iconSrc}
+                          alt={`${model.name} Logo`}
+                          loading="lazy"
+                          decoding="async"
+                          width="32"
+                          height="32"
+                        />
                       </div>
                       <span className="ai-flow-logo-label">{model.name}</span>
                     </div>

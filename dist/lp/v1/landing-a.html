@@ -23,7 +23,13 @@
       <div class="container nav">
         <a class="logo" href="#">
           <span class="logo-mark">
-            <img src="./assets/vantero-logo.png" alt="Vantero Logo" />
+            <img
+              src="./assets/vantero-logo.png"
+              alt="Vantero Logo"
+              width="36"
+              height="36"
+              decoding="async"
+            />
           </span>
           <span class="logo-text">Vantero</span>
         </a>
@@ -51,55 +57,121 @@
 
     <main>
       <section class="hero">
-        <img
-          src="./assets/Vantero-Panther.png"
-          alt=""
-          class="hero-panther"
-          aria-hidden="true"
-          loading="eager"
-        />
+        <picture aria-hidden="true">
+          <source
+            type="image/avif"
+            srcset="
+              ./assets/Vantero-Panther-768.avif 768w,
+              ./assets/Vantero-Panther-1200.avif 1200w,
+              ./assets/Vantero-Panther-1524.avif 1524w
+            "
+            sizes="100vw"
+          />
+          <source
+            type="image/webp"
+            srcset="
+              ./assets/Vantero-Panther-768.webp 768w,
+              ./assets/Vantero-Panther-1200.webp 1200w,
+              ./assets/Vantero-Panther-1524.webp 1524w
+            "
+            sizes="100vw"
+          />
+          <img
+            src="./assets/Vantero-Panther.png"
+            alt=""
+            class="hero-panther"
+            aria-hidden="true"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="1524"
+            height="857"
+          />
+        </picture>
         <div class="container hero-grid">
           <div class="hero-content">
             <div class="model-strip">
               <span class="model-chip">
                 <span class="model-icon">
-                  <img src="./assets/logo-gpt5.png" alt="GPT-5 Logo" />
+                  <img
+                    src="./assets/logo-gpt5.png"
+                    alt="GPT-5 Logo"
+                    width="40"
+                    height="40"
+                    decoding="async"
+                  />
                 </span>
                 <span>GPT-5</span>
               </span>
               <span class="model-chip">
                 <span class="model-icon">
-                  <img src="./assets/logo-claude.png" alt="Claude Logo" />
+                  <img
+                    src="./assets/logo-claude.png"
+                    alt="Claude Logo"
+                    width="40"
+                    height="40"
+                    decoding="async"
+                  />
                 </span>
                 <span>Claude</span>
               </span>
               <span class="model-chip">
                 <span class="model-icon">
-                  <img src="./assets/logo-gemini.png" alt="Gemini Logo" />
+                  <img
+                    src="./assets/logo-gemini.png"
+                    alt="Gemini Logo"
+                    width="40"
+                    height="40"
+                    decoding="async"
+                  />
                 </span>
                 <span>Gemini</span>
               </span>
               <span class="model-chip">
                 <span class="model-icon">
-                  <img src="./assets/logo-mistral.png" alt="Mistral Logo" />
+                  <img
+                    src="./assets/logo-mistral.png"
+                    alt="Mistral Logo"
+                    width="40"
+                    height="40"
+                    decoding="async"
+                  />
                 </span>
                 <span>Mistral</span>
               </span>
               <span class="model-chip">
                 <span class="model-icon">
-                  <img src="./assets/logo-deepseek.png" alt="DeepSeek Logo" />
+                  <img
+                    src="./assets/logo-deepseek.png"
+                    alt="DeepSeek Logo"
+                    width="40"
+                    height="40"
+                    decoding="async"
+                  />
                 </span>
                 <span>DeepSeek</span>
               </span>
               <span class="model-chip">
                 <span class="model-icon">
-                  <img src="./assets/logo-llama.png" alt="Llama Logo" />
+                  <img
+                    src="./assets/logo-llama.png"
+                    alt="Llama Logo"
+                    width="40"
+                    height="40"
+                    decoding="async"
+                  />
                 </span>
                 <span>Llama</span>
               </span>
               <span class="model-chip">
                 <span class="model-icon">
-                  <img src="./assets/logo-qwen.png" alt="Qwen Logo" />
+                  <img
+                    src="./assets/logo-qwen.png"
+                    alt="Qwen Logo"
+                    width="40"
+                    height="40"
+                    decoding="async"
+                  />
                 </span>
                 <span>Qwen</span>
               </span>
@@ -108,6 +180,9 @@
                   <img
                     src="./assets/logo-perplexity.png"
                     alt="Perplexity Logo"
+                    width="40"
+                    height="40"
+                    decoding="async"
                   />
                 </span>
                 <span>Perplexity</span>
@@ -153,7 +228,15 @@
               </div>
               <div class="prompt-toolbar">
                 <div class="prompt-actions">
-                  <div class="prompt-attach-wrap">
+                  <button
+                    class="prompt-advanced-toggle"
+                    type="button"
+                    data-advanced-toggle
+                    aria-expanded="false"
+                  >
+                    Erweiterte Optionen
+                  </button>
+                  <div class="prompt-attach-wrap prompt-advanced-item">
                     <button
                       class="prompt-icon"
                       aria-label="Anhänge"
@@ -211,7 +294,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="prompt-style-wrap">
+                  <div class="prompt-style-wrap prompt-advanced-item">
                     <button
                       class="prompt-icon"
                       aria-label="Antwortstil"
@@ -321,6 +404,9 @@
                         <img
                           src="./assets/vantero-logo.png"
                           alt="Modell Icon"
+                          width="26"
+                          height="26"
+                          decoding="async"
                         />
                       </span>
                       <span class="prompt-select-label">
@@ -354,6 +440,9 @@
                                 <img
                                   src="./assets/vantero-logo.png"
                                   alt="Vantero"
+                                  width="24"
+                                  height="24"
+                                  decoding="async"
                                 />
                               </span>
                               <span class="model-option-text">
@@ -667,6 +756,37 @@
         </div>
       </section>
 
+      <section class="section trust-priority">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Vertrauen zuerst</p>
+            <h2>Datenschutz und Infrastruktur vor Detailfunktionen</h2>
+            <p>
+              Für viele Teams ist Sicherheit die erste Kaufentscheidung. Deshalb
+              zeigen wir die wichtigsten Compliance-Fakten direkt vor den
+              Feature-Deep-Dives.
+            </p>
+          </div>
+          <div class="grid trust-priority-grid">
+            <article class="card trust-priority-card">
+              <h3>DE &amp; EU Datenzonen</h3>
+              <p>Kontrollierte Datenverarbeitung in Deutschland, EU oder US-Zone.</p>
+            </article>
+            <article class="card trust-priority-card">
+              <h3>Kein Modelltraining</h3>
+              <p>Ihre Inhalte fließen nicht in das Training externer Modelle.</p>
+            </article>
+            <article class="card trust-priority-card">
+              <h3>Enterprise-ready</h3>
+              <p>AVV/TOM, ISO 27001 und transparente Infrastruktur als Standard.</p>
+            </article>
+          </div>
+          <div class="trust-priority-cta">
+            <a href="#infra" class="secondary-btn">Infrastruktur im Detail ansehen</a>
+          </div>
+        </div>
+      </section>
+
       <section id="preise" class="section pricing-section">
         <div class="container">
           <div class="section-header pricing-header">
@@ -905,7 +1025,14 @@
               >
                 <span class="model-card-top">
                   <span class="model-card-icon" aria-hidden="true">
-                    <img src="./assets/logo-gpt5.png" alt="" />
+                    <img
+                      src="./assets/logo-gpt5.png"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="40"
+                      height="40"
+                    />
                   </span>
                   <span class="model-card-title">GPT-5</span>
                 </span>
@@ -926,7 +1053,14 @@
               >
                 <span class="model-card-top">
                   <span class="model-card-icon" aria-hidden="true">
-                    <img src="./assets/logo-claude.png" alt="" />
+                    <img
+                      src="./assets/logo-claude.png"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="40"
+                      height="40"
+                    />
                   </span>
                   <span class="model-card-title">Claude</span>
                 </span>
@@ -947,7 +1081,14 @@
               >
                 <span class="model-card-top">
                   <span class="model-card-icon" aria-hidden="true">
-                    <img src="./assets/logo-gemini.png" alt="" />
+                    <img
+                      src="./assets/logo-gemini.png"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="40"
+                      height="40"
+                    />
                   </span>
                   <span class="model-card-title">Gemini</span>
                 </span>
@@ -968,7 +1109,14 @@
               >
                 <span class="model-card-top">
                   <span class="model-card-icon" aria-hidden="true">
-                    <img src="./assets/logo-mistral.png" alt="" />
+                    <img
+                      src="./assets/logo-mistral.png"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="40"
+                      height="40"
+                    />
                   </span>
                   <span class="model-card-title">Mistral</span>
                 </span>
@@ -990,10 +1138,24 @@
                 <span class="model-card-top">
                   <span class="model-card-icon is-stack" aria-hidden="true">
                     <span class="model-card-icon-mini">
-                      <img src="./assets/logo-llama.png" alt="" />
+                      <img
+                        src="./assets/logo-llama.png"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        width="20"
+                        height="20"
+                      />
                     </span>
                     <span class="model-card-icon-mini">
-                      <img src="./assets/logo-qwen.png" alt="" />
+                      <img
+                        src="./assets/logo-qwen.png"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        width="20"
+                        height="20"
+                      />
                     </span>
                   </span>
                   <span class="model-card-title">Llama &amp; Qwen</span>
@@ -1099,7 +1261,14 @@
               >
                 <span class="model-card-top">
                   <span class="model-card-icon" aria-hidden="true">
-                    <img src="./assets/vantero-logo.png" alt="" />
+                    <img
+                      src="./assets/vantero-logo.png"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="40"
+                      height="40"
+                    />
                   </span>
                   <span class="model-card-title">Auto-Auswahl</span>
                 </span>
@@ -1248,6 +1417,7 @@
               src="./assets/eu-servers.png"
               alt="Serverstandort Deutschland und EU"
               loading="lazy"
+              decoding="async"
               width="1024"
               height="1024"
             />
@@ -1310,7 +1480,14 @@
         <div>
           <div class="logo footer-logo">
             <span class="logo-mark">
-              <img src="./assets/vantero-logo.png" alt="Vantero Logo" />
+              <img
+                src="./assets/vantero-logo.png"
+                alt="Vantero Logo"
+                loading="lazy"
+                decoding="async"
+                width="36"
+                height="36"
+              />
             </span>
             <span class="logo-text">Vantero</span>
           </div>

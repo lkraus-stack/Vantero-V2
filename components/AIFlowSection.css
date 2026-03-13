@@ -55,10 +55,10 @@
     radial-gradient(ellipse 40% 40% at 50% 50%, rgba(56, 189, 248, 0.1), transparent 70%),
     radial-gradient(circle at 25% 35%, rgba(99, 102, 241, 0.05), transparent 50%),
     radial-gradient(circle at 75% 65%, rgba(34, 211, 238, 0.04), transparent 50%);
-  opacity: 0.8;
-  filter: blur(16px);
+  opacity: 0.65;
+  filter: blur(10px);
   transform: translate3d(0, 0, 0);
-  animation: ai-flow-nebula 22s ease-in-out infinite;
+  animation: ai-flow-nebula 32s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
 }
@@ -79,7 +79,7 @@
   stroke-linecap: round;
   stroke-dasharray: 6 14;
   opacity: 1;
-  animation: ai-flow-dash 8s linear infinite;
+  animation: ai-flow-dash 14s linear infinite;
 }
 
 .ai-flow-particles {
@@ -112,11 +112,11 @@
   display: grid;
   place-items: center;
   box-shadow:
-    0 0 40px rgba(56, 189, 248, 0.2),
-    0 0 80px rgba(56, 189, 248, 0.06),
-    inset 0 0 30px rgba(56, 189, 248, 0.04);
+    0 0 28px rgba(56, 189, 248, 0.16),
+    0 0 52px rgba(56, 189, 248, 0.05),
+    inset 0 0 20px rgba(56, 189, 248, 0.04);
   position: relative;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
 }
 
 .ai-flow-center::before {
@@ -142,8 +142,8 @@
     rgba(34, 211, 238, 0.1),
     rgba(56, 189, 248, 0.0)
   );
-  opacity: 0.45;
-  filter: blur(14px);
+  opacity: 0.32;
+  filter: blur(10px);
   animation: ai-flow-halo 12s linear infinite;
   pointer-events: none;
 }
@@ -171,7 +171,6 @@
   gap: 6px;
   justify-items: center;
   text-align: center;
-  will-change: transform, opacity;
 }
 
 .ai-flow-logo-inner {
@@ -248,6 +247,17 @@
 
   .ai-flow-canvas {
     width: 320px;
+  }
+
+  .ai-flow-nebula,
+  .ai-flow-halo,
+  .ai-flow-particles {
+    display: none;
+  }
+
+  .ai-flow-center {
+    box-shadow: 0 0 22px rgba(56, 189, 248, 0.12);
+    backdrop-filter: none;
   }
 }
 

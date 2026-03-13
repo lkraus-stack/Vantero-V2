@@ -74,6 +74,8 @@ const continueLink = document.querySelector("[data-continue-link]");
 const promptTextarea = document.querySelector(".prompt-textarea");
 const promptSend = document.querySelector("[data-prompt-send]");
 const promptCount = document.querySelector(".prompt-count");
+const promptToolbar = document.querySelector(".prompt-toolbar");
+const promptAdvancedToggle = document.querySelector("[data-advanced-toggle]");
 
 let closeModelMenu = null;
 
@@ -1716,9 +1718,40 @@ const setupPricingBilling = () => {
   setBilling("monthly");
 };
 
+const setupPromptAdvanced = () => {
+  if (!promptToolbar || !promptAdvancedToggle) return;
+
+  const mobileQuery = window.matchMedia("(max-width: 900px)");
+
+  const setExpanded = (expanded) => {
+    promptToolbar.setAttribute("data-advanced", expanded ? "expanded" : "collapsed");
+    promptAdvancedToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    promptAdvancedToggle.textContent = expanded
+      ? "Erweiterte Optionen ausblenden"
+      : "Erweiterte Optionen";
+  };
+
+  const syncByViewport = () => setExpanded(!mobileQuery.matches);
+  syncByViewport();
+
+  promptAdvancedToggle.addEventListener("click", () => {
+    const isExpanded = promptToolbar.getAttribute("data-advanced") === "expanded";
+    setExpanded(!isExpanded);
+  });
+
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener("change", syncByViewport);
+  } else if (typeof mobileQuery.addListener === "function") {
+    mobileQuery.addListener(syncByViewport);
+  }
+};
+
 const setupAnchorFlow = () => {
   const anchorLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
   if (anchorLinks.length === 0) return;
+
+  const shouldReduceMotion = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   anchorLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -1729,7 +1762,10 @@ const setupAnchorFlow = () => {
       if (!target) return;
 
       event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.scrollIntoView({
+        behavior: shouldReduceMotion() ? "auto" : "smooth",
+        block: "start",
+      });
     });
   });
 };
@@ -1874,6 +1910,7 @@ const setupScrollReveals = () => {
 setupAnchorFlow();
 setupAmbientParallax();
 setupScrollReveals();
+setupPromptAdvanced();
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", setupPricingBilling);

@@ -589,6 +589,42 @@ a.secondary-btn {
     url("./assets/jungle-panther.png") center center / cover no-repeat;
 }
 
+@supports (background-image: image-set(url("./assets/jungle-panther-1024.avif") type("image/avif") 1x)) {
+  #plattform.section.alt {
+    background:
+      linear-gradient(
+        120deg,
+        rgba(2, 6, 23, 0.88) 0%,
+        rgba(2, 6, 23, 0.58) 48%,
+        rgba(2, 6, 23, 0.88) 100%
+      ),
+      image-set(
+        url("./assets/jungle-panther-1024.avif") type("image/avif") 1x,
+        url("./assets/jungle-panther-1024.webp") type("image/webp") 1x,
+        url("./assets/jungle-panther.png") type("image/png") 1x
+      ) center center / cover no-repeat;
+  }
+}
+
+@media (max-width: 900px) {
+  @supports (background-image: image-set(url("./assets/jungle-panther-640.avif") type("image/avif") 1x)) {
+    #plattform.section.alt {
+      background:
+        linear-gradient(
+          120deg,
+          rgba(2, 6, 23, 0.88) 0%,
+          rgba(2, 6, 23, 0.58) 48%,
+          rgba(2, 6, 23, 0.88) 100%
+        ),
+        image-set(
+          url("./assets/jungle-panther-640.avif") type("image/avif") 1x,
+          url("./assets/jungle-panther-640.webp") type("image/webp") 1x,
+          url("./assets/jungle-panther.png") type("image/png") 1x
+        ) center center / cover no-repeat;
+    }
+  }
+}
+
 #plattform.section.alt::before {
   content: "";
   position: absolute;
@@ -1077,6 +1113,21 @@ a.secondary-btn {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.prompt-advanced-toggle {
+  display: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(12, 20, 36, 0.82);
+  color: rgba(226, 232, 240, 0.95);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform var(--dur-med) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
 }
 
 .prompt-select-wrap {
@@ -3027,7 +3078,6 @@ body.overlay-open {
   position: relative;
   overflow: hidden;
   padding: 0;
-  will-change: transform;
 }
 
 .media-card img {
@@ -4404,7 +4454,6 @@ body.overlay-open {
   transition: opacity var(--dur-slow) var(--ease-out),
     transform var(--dur-slow) var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
-  will-change: transform, opacity;
 }
 
 .js .reveal.is-visible {
@@ -4477,6 +4526,16 @@ body.overlay-open {
     flex-wrap: wrap;
     overflow-x: visible;
     scroll-snap-type: none;
+  }
+
+  .prompt-advanced-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .prompt-toolbar[data-advanced="collapsed"] .prompt-advanced-item {
+    display: none;
   }
 }
 
